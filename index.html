@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>BOOKVERSE — Knowledge Beyond Pages.</title>
+<meta name="description" content="BOOKVERSE is a demo digital bookstore. No real payments.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@600;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<!-- Intro screen -->
+<div id="intro"><div class="logo big"><svg viewBox="0 0 32 32" width="56" height="56"><path d="M4 6h10c2 0 2 2 2 2v18s0-2-2-2H4zM28 6H18c-2 0-2 2-2 2v18s0-2 2-2h10z" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round"/></svg><b>BOOKVERSE</b></div></div>
+
+<div class="announce" id="announce"><span>✨ Your next favourite book is just one click away. <em>(Demo website)</em></span><button data-act="closeAnn" aria-label="Close announcement">✕</button></div>
+
+<header class="nav" id="nav">
+  <a href="#home" class="logo"><svg viewBox="0 0 32 32" width="28" height="28"><path d="M4 6h10c2 0 2 2 2 2v18s0-2-2-2H4zM28 6H18c-2 0-2 2-2 2v18s0-2 2-2h10z" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linejoin="round"/></svg><b>BOOKVERSE</b></a>
+  <nav id="menu" aria-label="Main">
+    <a href="#home">Home</a><a href="#explore">Explore Books</a><a href="#categories">Categories</a><a href="#bestsellers">Bestsellers</a><a href="#about">About Us</a>
+  </nav>
+  <div class="icons">
+    <button data-act="search" aria-label="Search">🔍</button>
+    <button data-act="theme" aria-label="Toggle dark/light theme">🌓</button>
+    <button data-act="wishlist" aria-label="Wishlist">♥<i class="count" id="wCount">0</i></button>
+    <button data-act="cart" aria-label="Cart" id="cartBtn">🛍<i class="count" id="cCount">0</i></button>
+    <button class="burger" data-act="burger" aria-label="Menu" aria-expanded="false">☰</button>
+  </div>
+</header>
+
+<main id="home">
+  <section class="hero">
+    <div class="orb o1"></div><div class="orb o2"></div>
+    <div class="hero-text">
+      <p class="tag">Knowledge Beyond Pages.</p>
+      <h1><span class="rv">Discover</span> <span class="rv">Your Next</span> <span class="rv">Great Read.</span></h1>
+      <p class="lead">Explore a world of knowledge, imagination, and inspiration through our curated digital library.</p>
+      <div class="cta"><a class="btn primary mag" href="#explore">Explore Books</a><a class="btn ghost mag" href="#bestsellers">Discover Bestsellers</a></div>
+    </div>
+    <div class="hero-books" id="heroBooks"><span class="badge-float">★ Bestseller (demo)</span></div>
+  </section>
+
+  <section class="stats reveal">
+    <div><b data-count="16">0</b><span>Sample books (demo)</span></div>
+    <div><b data-count="8">0</b><span>Categories</span></div>
+    <div><b>Instant</b><span>Digital access idea</span></div>
+    <div><b data-count="0">0</b><span>Real payments — demo only</span></div>
+  </section>
+
+  <section id="explore" class="sec">
+    <h2 class="reveal">Explore Books</h2>
+    <div class="controls reveal">
+      <input id="q" type="search" placeholder="Search title, author or category…" aria-label="Search books">
+      <select id="sort" aria-label="Sort"><option value="">Sort: Default</option><option value="pl">Price: Low to High</option><option value="ph">Price: High to Low</option><option value="az">A → Z</option><option value="new">Newest</option></select>
+      <select id="price" aria-label="Price range"><option value="9999">Any price</option><option value="199">Under ₹199</option><option value="299">Under ₹299</option><option value="399">Under ₹399</option></select>
+      <div class="chips" id="flags"><button class="chip on" data-flag="">All</button><button class="chip" data-flag="best">Bestsellers</button><button class="chip" data-flag="new">New Arrivals</button></div>
+      <button class="chip" data-act="clear">Clear Filters</button>
+    </div>
+    <p id="result" class="muted" aria-live="polite"></p>
+    <div class="grid" id="grid"></div>
+  </section>
+
+  <section id="categories" class="sec alt">
+    <h2 class="reveal">Categories</h2>
+    <div class="cats" id="cats"></div>
+  </section>
+
+  <section id="bestsellers" class="sec">
+    <h2 class="reveal">Bestsellers <small class="demo">DEMO DATA</small></h2>
+    <div class="car-wrap"><button class="arrow" data-act="prev" aria-label="Previous">‹</button><div class="car" id="car"></div><button class="arrow" data-act="next" aria-label="Next">›</button></div>
+  </section>
+
+  <section id="recent" class="sec" hidden><h2>Recently Viewed</h2><div class="car" id="recentList"></div></section>
+
+  <section id="about" class="sec alt">
+    <h2 class="reveal">Why Choose Us</h2>
+    <div class="feat">
+      <div class="reveal"><i>⚡</i><h3>Instant Digital Access</h3><p>Digital books are made to be opened right away.</p></div>
+      <div class="reveal"><i>🎯</i><h3>Curated Collections</h3><p>Hand-picked sample titles across 8 categories.</p></div>
+      <div class="reveal"><i>🧭</i><h3>Easy Discovery</h3><p>Search, filter and sort without page reloads.</p></div>
+      <div class="reveal"><i>📱</i><h3>Read Anywhere</h3><p>PDFs open on phone, tablet and computer.</p></div>
+      <div class="reveal"><i>🎓</i><h3>Student-Friendly</h3><p>School, exam, science and maths sections.</p></div>
+      <div class="reveal"><i>📚</i><h3>Simple Digital Library</h3><p>Wishlist and cart saved in your browser.</p></div>
+    </div>
+  </section>
+
+  <section class="sec">
+    <h2 class="reveal">Testimonials <small class="demo">DEMO TESTIMONIALS — NOT REAL REVIEWS</small></h2>
+    <div class="feat t">
+      <blockquote class="reveal">“Sample quote: a clean, fast way to browse books.”<cite>— Demo Student</cite></blockquote>
+      <blockquote class="reveal">“Sample quote: I love the wishlist and categories.”<cite>— Demo Teacher</cite></blockquote>
+      <blockquote class="reveal">“Sample quote: Looks like a real startup site!”<cite>— Demo Friend</cite></blockquote>
+    </div>
+  </section>
+
+  <section class="sec news reveal">
+    <h2>Join the Newsletter</h2>
+    <form id="nl" novalidate><input id="nlMail" type="email" placeholder="you@example.com" aria-label="Email"><button class="btn primary" type="submit">Subscribe</button></form>
+    <p class="muted">Demo only — your email is NOT saved or sent anywhere.</p>
+  </section>
+
+  <section class="sec alt">
+    <h2 class="reveal">FAQ</h2>
+    <div class="faq">
+      <details><summary>What is BOOKVERSE?</summary><p>A demonstration digital bookstore built with HTML, CSS and JavaScript.</p></details>
+      <details><summary>What types of books are available?</summary><p>Sample books in 8 categories, from School Education to Technology &amp; AI. All are fictional.</p></details>
+      <details><summary>How does the demo purchase work?</summary><p>Click Buy Now, then “Complete Demo Purchase”. You get a demo order number. No payment happens.</p></details>
+      <details><summary>Can I read books on my phone?</summary><p>PDFs open on phones. Sample books have no real PDF yet.</p></details>
+      <details><summary>Is a real payment gateway available?</summary><p>No. This is a demo and never asks for card, UPI or bank details.</p></details>
+      <details><summary>How can I contact the website owner?</summary><p>Edit the contact details in the footer (hello@example.com is a placeholder).</p></details>
+    </div>
+  </section>
+</main>
+
+<footer class="foot">
+  <div><a href="#home" class="logo"><b>BOOKVERSE</b></a><p>Knowledge Beyond Pages.<br>A demonstration website — no real purchases.</p></div>
+  <div><h4>Quick Links</h4><a href="#explore">Explore</a><a href="#bestsellers">Bestsellers</a><a href="#about">About</a></div>
+  <div><h4>Categories</h4><a href="#categories">All Categories</a></div>
+  <div><h4>Contact (placeholder)</h4><p>dakshgupta@example.com<br>+91 9992738200<br>Hassanpur, pakistan</p><a href="#" data-act="legal" data-t="Privacy Policy">Privacy Policy</a> · <a href="#" data-act="legal" data-t="Terms and Conditions">Terms</a></div>
+  <p class="copy">© <span id="yr"></span> BOOKVERSE — Demo project. All sample books are fictional.</p>
+</footer>
+
+<button id="top" data-act="top" aria-label="Back to top">↑</button>
+<div id="toasts" aria-live="polite"></div>
+<div id="modal" role="dialog" aria-modal="true" aria-label="Dialog"><div class="box" id="box" tabindex="-1"></div></div>
+<script src="script.js"></script>
+</body>
+</html>
